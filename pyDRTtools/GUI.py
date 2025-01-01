@@ -3,6 +3,10 @@ __authors__ = 'Francesco Ciucci, Baptiste Py, Ting Hei Wan, Adeleke Maradesa'
 
 __date__ = '4th October 2024'
 
+DRTName: str  = "pyDRTtools"
+DRTVersion: str ="0.2.0.1"
+DRTDate: str = "2024-10-30"
+
 import sys
 import csv
 import numpy as np
@@ -29,6 +33,8 @@ class GUI(QtWidgets.QMainWindow):
         self.ui = layout.Ui_MainWindow()  # layout
         self.ui.setupUi(self)
        
+        QtWidgets.QMainWindow.setWindowTitle(self,DRTName+' '+DRTVersion+' '+DRTDate )
+
         # setting data to be initially none
         self.data = None
        
