@@ -3,9 +3,14 @@ __authors__ = 'Francesco Ciucci, Baptiste Py, Ting Hei Wan, Adeleke Maradesa'
 
 __date__ = '4th October 2024'
 
-DRTName: str  = "pyDRTtools"
-DRTVersion: str ="0.2.0.1"
-DRTDate: str = "2024-10-30"
+from pyDRTtools.monitor_pipe import start_monitor_pipe
+
+global_appname: str  = "pyDRTtools"
+global_appver: str = "0.2.0.0"
+global_appdrtcommit: str ="4d2817e"
+global_appscribnercommit: str ="6c621c2"
+global_appdate: str = "2024-10-31"
+global_importfile: str = ""
 
 import sys
 import csv
@@ -22,7 +27,6 @@ mpl.use("Qt5Agg")
 import matplotlib.pyplot as plt
 from matplotlib.backends.backend_qt5agg import FigureCanvasQTAgg as FigureCanvas
 
-
 class GUI(QtWidgets.QMainWindow):
     def __init__(self):
     
@@ -32,8 +36,6 @@ class GUI(QtWidgets.QMainWindow):
         # Initalize GUI layout
         self.ui = layout.Ui_MainWindow()  # layout
         self.ui.setupUi(self)
-       
-        QtWidgets.QMainWindow.setWindowTitle(self,DRTName+' '+DRTVersion+' '+DRTDate )
 
         # setting data to be initially none
         self.data = None
@@ -64,6 +66,16 @@ class GUI(QtWidgets.QMainWindow):
         self.ui.export_DRT_button.clicked.connect(self.export_DRT)
         self.ui.export_EIS_button.clicked.connect(self.export_EIS)
         self.ui.export_fig_button.clicked.connect(self.export_fig)
+
+        self.set_caption()
+        start_monitor_pipe()
+
+    def set_caption(self):
+        importfile = global_importfile
+        if len(importfile)>0:
+            importfile = "  -  " + importfile
+
+        QtWidgets.QMainWindow.setWindowTitle(self, global_appname + ' ' + global_appver + ' ' + global_appdrtcommit+'/'+global_appscribnercommit + importfile)
        
     def import_file(self):
         
@@ -74,12 +86,15 @@ class GUI(QtWidgets.QMainWindow):
         if not (path.endswith('.csv') or path.endswith('.txt')):
             print('return')
             return
-            
+
+        global global_importfile
+        global_importfile = path
         self.data = EIS_object.from_file(path)   ######### Here
         
         # discard inductance data if necessary
         self.inductance_callback()
         self.statusBar().showMessage('Imported file: %s' % path, 1000)
+        self.set_caption()
     
     def inductance_callback(self): 
         
@@ -223,7 +238,7 @@ class GUI(QtWidgets.QMainWindow):
         path, ext = QFileDialog.getSaveFileName(None, "Please directory to save the DRT result", 
                                                 "", "CSV files (*.csv);; TXT files (*.txt)")
 
-        if path=='':
+        if len(path)==0:
             return
 
         if self.data.method == 'simple':
@@ -285,7 +300,7 @@ class GUI(QtWidgets.QMainWindow):
         path, ext = QFileDialog.getSaveFileName(None, "Please directory to save the EIS fitting result", 
                                                 "", "CSV files (*.csv);; TXT files (*.txt)")
                         
-        if path=='':
+        if len(path)==0:
             return
 
         if self.data.method == 'BHT': # save result for BHT
