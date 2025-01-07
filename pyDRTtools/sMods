@@ -1,0 +1,15 @@
+global_appname: str  = "ezDRTtools"
+global_appdrtcommit: str ="4d2817e"
+global_appscribnercommit: str ="6c621c2"
+global_appdate: str = "2024-10-31"
+global_importfile: str = ""
+
+
+    def showAboutMessage(self):
+        msg_box = QtWidgets.QMessageBox()
+        msg_box.setWindowTitle("About ezDRTtools")
+        pydate = "pyDRTtools date: " + GUI  __ver__
+        msg_box.setText(pydate)
+        msg_box.setStandardButtons(QtWidgets.QMessageBox.Ok)
+        #msg_box.setIcon(QtWidgets.QMessageBox.Information)
+        msg_box.exec_()

@@ -5,8 +5,7 @@ __authors__ = 'Francesco Ciucci, Adeleke Maradesa, Baptiste Py, Ting Hei Wan'
 __date__ = '12th June 2024'
 
 
-from PyQt5 import QtCore, QtGui, QtWidgets
-
+from PyQt5 import (QtCore, QtGui, QtWidgets)
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
@@ -509,10 +508,20 @@ class Ui_MainWindow(object):
         self.export_fig_button.setFont(font)
         self.export_fig_button.setObjectName("export_fig_button")
         MainWindow.setCentralWidget(self.centralwidget)
+
+
+
+
+
         self.menubar = QtWidgets.QMenuBar(MainWindow)
         self.menubar.setGeometry(QtCore.QRect(0, 0, 1625, 26))
         self.menubar.setObjectName("menubar")
         MainWindow.setMenuBar(self.menubar)
+        help_menu = self.menubar.addMenu("&Help")
+        about_action = QtWidgets.QAction("&About...",MainWindow)
+        about_action.triggered.connect(self.showAboutMessage)
+        help_menu.addAction(about_action)
+
         self.statusbar = QtWidgets.QStatusBar(MainWindow)
         self.statusbar.setObjectName("statusbar")
         MainWindow.setStatusBar(self.statusbar)

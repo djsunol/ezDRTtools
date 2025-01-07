@@ -2,11 +2,11 @@
 __authors__ = 'Francesco Ciucci, Baptiste Py, Ting Hei Wan, Adeleke Maradesa'
 
 __date__ = '4th October 2024'
+__pyDRTtoolsver__ = "0.2.0.0"
 
 from pyDRTtools.monitor_pipe import start_monitor_pipe
 
-global_appname: str  = "pyDRTtools"
-global_appver: str = "0.2.0.0"
+global_appname: str  = "ezDRTtools"
 global_appdrtcommit: str ="4d2817e"
 global_appscribnercommit: str ="6c621c2"
 global_appdate: str = "2024-10-31"
@@ -55,7 +55,7 @@ class GUI(QtWidgets.QMainWindow):
         self.ui.show_im_res.clicked.connect(lambda: self.plotting_callback('Im_residual'))
         self.ui.show_DRT.clicked.connect(lambda: self.plotting_callback('DRT_data'))
         self.ui.show_score.clicked.connect(lambda: self.plotting_callback('Score'))
-        
+
         # run buttons
         self.ui.simple_run_button.clicked.connect(self.simple_run_callback)
         self.ui.bayesian_button.clicked.connect(self.bayesian_run_callback)
