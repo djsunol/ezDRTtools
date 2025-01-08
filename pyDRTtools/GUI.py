@@ -2,15 +2,8 @@
 __authors__ = 'Francesco Ciucci, Baptiste Py, Ting Hei Wan, Adeleke Maradesa'
 
 __date__ = '4th October 2024'
-__pyDRTtoolsver__ = "0.2.0.0"
 
 from pyDRTtools.monitor_pipe import start_monitor_pipe
-
-global_appname: str  = "ezDRTtools"
-global_appdrtcommit: str ="4d2817e"
-global_appscribnercommit: str ="6c621c2"
-global_appdate: str = "2024-10-31"
-global_importfile: str = ""
 
 import sys
 import csv
@@ -67,16 +60,9 @@ class GUI(QtWidgets.QMainWindow):
         self.ui.export_EIS_button.clicked.connect(self.export_EIS)
         self.ui.export_fig_button.clicked.connect(self.export_fig)
 
-        self.set_caption()
-        start_monitor_pipe()
+        from . import sMods
+        sMods.setCaption(self)
 
-    def set_caption(self):
-        importfile = global_importfile
-        if len(importfile)>0:
-            importfile = "  -  " + importfile
-
-        QtWidgets.QMainWindow.setWindowTitle(self, global_appname + ' ' + global_appver + ' ' + global_appdrtcommit+'/'+global_appscribnercommit + importfile)
-       
     def import_file(self):
         
         # file dialog pop up, the users can choose a csv or txt file
@@ -87,15 +73,16 @@ class GUI(QtWidgets.QMainWindow):
             print('return')
             return
 
-        global global_importfile
-        global_importfile = path
+        from . import sMods
+        sMods.global_importfile = path
+        sMods.setCaption(self)
+
         self.data = EIS_object.from_file(path)   ######### Here
         
         # discard inductance data if necessary
         self.inductance_callback()
         self.statusBar().showMessage('Imported file: %s' % path, 1000)
-        self.set_caption()
-    
+
     def inductance_callback(self): 
         
         if self.data is None:
