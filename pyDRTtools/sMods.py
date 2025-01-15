@@ -4,11 +4,10 @@ __authors__ = 'Derek Johnson'
 __date__ = '7th Jan 2025'
 
 global_exDRTname: str  = "ezDRTtools"
-global_ezDRTver: str = "1.00.000"
-global_ezDRTcommit: str ="6c621c2"
-global_ezDRTdate: str = "2025-01-07"
+global_ezDRTver: str = "1.02"
+global_ezDRTdate: str = "2025-01-15"
 
-global_pyDRTcommit: str ="4d2817e"
+global_pyDRTver: str ="0.2"
 global_pyDRTdate: str = "2024-10-31"
 
 global_importfile: str = ""
@@ -32,26 +31,35 @@ def addAboutMenu(self,mainwindow):
     manual_action = QtWidgets.QAction("pyDRTtools &Manual",mainwindow)
     manual_action.triggered.connect(showManual)
     help_menu.addAction(manual_action)
+    appnote_action = QtWidgets.QAction("ezDRTtools &AppNote",mainwindow)
+    appnote_action.triggered.connect(showAppNote)
+    help_menu.addAction(appnote_action)
+    datafolder_action = QtWidgets.QAction("Example &Data",mainwindow)
+    datafolder_action.triggered.connect(showDataFolder)
+    help_menu.addAction(datafolder_action)
 
 
 def showAboutMessage(self):
     msg_box = QtWidgets.QMessageBox()
     msg_box.setWindowTitle("About ezDRTtools")
+    eztext = "ezDRTtools (c) 2025 Scribner LLC,\n based on pyDRTtools (c) 2023 ciuccislab\n Open Source MIT License"
     ezver = "ezDRTtools version: " + global_ezDRTver
     ezdate = "ezDRTtools date: " + global_ezDRTdate
-    pydate = "pyDRTtools date: " + global_pyDRTdate
-    pycommit = "pyDRTtools git commit: " + global_pyDRTcommit
-    msg_box.setText(ezver +"\n"+ezdate+ "\n\n"+pydate + "\n"+pycommit)
+    pydate = "pyDRTtools version: " + global_pyDRTver
+    pycommit = "pyDRTtools github date: " + global_pyDRTdate
+    msg_box.setText(eztext+"\n\n"+ezver +"\n"+ezdate+ "\n\n"+pydate + "\n"+pycommit)
     msg_box.setStandardButtons(QtWidgets.QMessageBox.Ok)
     #msg_box.setIcon(QtWidgets.QMessageBox.Information)
     msg_box.exec_()
 
 def showReadMe(self):
     script_dir = os.path.dirname(os.path.abspath(__file__))
-    readmeez_path = os.path.join(script_dir, 'readme_ezDRTtools.txt')
-    readmepy_path = os.path.join(script_dir, 'readme_pyDRTtools.txt')
-    licenseez_path = os.path.join(script_dir, 'license_ezDRTtools.txt')
-    licensepy_path = os.path.join(script_dir, 'license_pyDRTtools.txt')
+    script_dir = os.path.dirname(script_dir)  # up 2 folder levels
+    script_dir = os.path.dirname(script_dir)
+    readmeez_path = os.path.join(script_dir, 'Text\\readme_ezDRTtools.txt')
+    readmepy_path = os.path.join(script_dir, 'Text\\readme_pyDRTtools.txt')
+    licenseez_path = os.path.join(script_dir, 'Text\license_ezDRTtools.txt')
+    licensepy_path = os.path.join(script_dir, 'Text\license_pyDRTtools.txt')
 
     #msg_box = QtWidgets.QMessageBox()
     #msg_box.setWindowTitle("Readme")
@@ -83,11 +91,37 @@ def showReadMe(self):
 
 def showManual(self):
     script_dir = os.path.dirname(os.path.abspath(__file__))
-    manual_path = os.path.join(script_dir, 'pyDRTtools_manual.pdf')
+    script_dir = os.path.dirname(script_dir)  # up 2 folder levels
+    script_dir = os.path.dirname(script_dir)
+    manual_path = os.path.join(script_dir, 'Manual\pyDRTtools_manual.pdf')
 
     if manual_path:
         try:
             os.startfile(manual_path)
+        except Exception as e:
+            print(f"An error occurred: {e}")
+
+def showAppNote(self):
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    script_dir = os.path.dirname(script_dir)  # up 2 folder levels
+    script_dir = os.path.dirname(script_dir)
+    manual_path = os.path.join(script_dir, 'Text\ezDRTtools_AppNote.pdf')
+
+    if manual_path:
+        try:
+            os.startfile(manual_path)
+        except Exception as e:
+            print(f"An error occurred: {e}")
+
+def showDataFolder(self):
+    data_dir = os.path.dirname(os.path.abspath(__file__))
+    data_dir = os.path.dirname(data_dir)  # up 2 folder levels
+    data_dir = os.path.dirname(data_dir)
+    data_path = os.path.join(data_dir, 'EIS Data')
+
+    if data_path:
+        try:
+            os.startfile(data_path)
         except Exception as e:
             print(f"An error occurred: {e}")
 
