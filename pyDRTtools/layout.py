@@ -514,8 +514,8 @@ class Ui_MainWindow(object):
         self.menubar.setObjectName("menubar")
         MainWindow.setMenuBar(self.menubar)
 
-        from . import sMods
-        sMods.addAboutMenu(self,MainWindow)
+        from ezDRTtools import sMods
+        sMods.addAboutMenu(self, MainWindow)
 
         self.statusbar = QtWidgets.QStatusBar(MainWindow)
         self.statusbar.setObjectName("statusbar")

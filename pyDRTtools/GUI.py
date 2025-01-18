@@ -3,12 +3,8 @@ __authors__ = 'Francesco Ciucci, Baptiste Py, Ting Hei Wan, Adeleke Maradesa'
 
 __date__ = '4th October 2024'
 
-from pyDRTtools.monitor_pipe import start_monitor_pipe
-
-import sys
 import csv
-import numpy as np
-from numpy import log10, absolute, angle
+from numpy import absolute, angle
 from PyQt5 import QtGui, QtWidgets
 from PyQt5.QtWidgets import QFileDialog
 from . import layout
@@ -60,7 +56,7 @@ class GUI(QtWidgets.QMainWindow):
         self.ui.export_EIS_button.clicked.connect(self.export_EIS)
         self.ui.export_fig_button.clicked.connect(self.export_fig)
 
-        from . import sMods
+        from ezDRTtools import sMods
         sMods.setCaption(self)
 
     def import_file(self):
@@ -73,7 +69,7 @@ class GUI(QtWidgets.QMainWindow):
             print('return')
             return
 
-        from . import sMods
+        from ezDRTtools import sMods
         sMods.global_importfile = path
         sMods.setCaption(self)
 

@@ -1,0 +1,7 @@
+cvxopt
+scipy
+numpy
+scikit-learn
+PyQt5
+matplotlib
+pandas
