@@ -35,9 +35,9 @@ create a Python environment named exDRTtools
 
 **Run the following on anaconda prompt:**
 ```
-conda create --name DRT pip ipython pandas matplotlib scikit-learn spyder
-conda activate DRT
-pip install cvxopt PyQt5
+conda create --name ezDRT python
+conda activate ezDRT
+pip install ipython pandas matplotlib scikit-learn spyder cvxopt PyQt5
 pip install pyDRTtools
 ```
 **ipython**
