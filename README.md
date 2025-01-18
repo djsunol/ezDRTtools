@@ -7,20 +7,20 @@ NOTE - If you use ezDRTtools, you should cite the relevant scientific references
 
 **What is the ezDRTtools? Why would I want it?**
 
-The ezDRTtools program is designed to simplify the installation on a Windows PC using a single download and requires no knowledge of Python. 
+The ezDRTtools program is designed to simplify the installation of DRTtools on a Windows PC using a single download and requires no knowledge of Python. 
 • The ezDRTtools installer is freely available from www.scribner.com.
 • The application is assembled using pyInstaller into a isolated Python environment that contains all the necessary libraries.
-•	A Help Menu has been added for easy access to the code versions, readme files, example data files, the exDRTtools AppNote and the pyDRTtools manual. 
-•	The name of the loaded data file is listed on the title bar.
-•	ezDRTtools is synchronized with modifications to pyDRTtools code in its github.com repository. 
-•	ezDRTtools provides a desktop icon to directly launch the application. 
+• A Help Menu has been added for easy access to the code versions, readme files, example data files, the exDRTtools AppNote, and the pyDRTtools manual. 
+• The name of the loaded data file has been added to the title bar.
+• ezDRTtools is synchronized with modifications to pyDRTtools code in its github.com repository. 
+• The ezDRTtools installer provides a desktop icon to directly launch the application. 
 
 ## Distribution and Release Information
 
 The packaged ezDRTtools installer is freely available from www.scribner.com.
 
-All Python code related to the ezDRTtools project is freely available under the MIT license from this site.
-The following inctructions are for downloading and running the Python code related to ezDRTtools
+All Python code related to the ezDRTtools project is freely available under the MIT license from https://github.com/djsunol/ezDRTtools
+The following instructions are for downloading and running the Python code related to ezDRTtools
 
 **System requirements**
 
