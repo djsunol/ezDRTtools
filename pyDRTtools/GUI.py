@@ -221,8 +221,8 @@ class GUI(QtWidgets.QMainWindow):
         path, ext = QFileDialog.getSaveFileName(None, "Please directory to save the DRT result", 
                                                 "", "CSV files (*.csv);; TXT files (*.txt)")
 
-        if len(path)==0:
-            return
+        if path == "":  # Check if the path is empty
+            return  # Exit the function if no path is selected
 
         if self.data.method == 'simple':
             with open(path, 'w', newline='') as save_file:
@@ -283,8 +283,8 @@ class GUI(QtWidgets.QMainWindow):
         path, ext = QFileDialog.getSaveFileName(None, "Please directory to save the EIS fitting result", 
                                                 "", "CSV files (*.csv);; TXT files (*.txt)")
                         
-        if len(path)==0:
-            return
+        if path == "":  # Check if the path is empty
+            return  # Exit the function if no path is selected
 
         if self.data.method == 'BHT': # save result for BHT
             with open(path, 'w', newline='') as save_file:
