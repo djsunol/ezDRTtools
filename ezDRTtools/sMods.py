@@ -56,10 +56,10 @@ def showReadMe(self):
     script_dir = os.path.dirname(os.path.abspath(__file__))
     script_dir = os.path.dirname(script_dir)  # up 2 folder levels
     script_dir = os.path.dirname(script_dir)
-    readmeez_path = os.path.join(script_dir, 'Text\\readme_ezDRTtools.txt')
-    readmepy_path = os.path.join(script_dir, 'Text\\readme_pyDRTtools.txt')
-    licenseez_path = os.path.join(script_dir, 'Text\license_ezDRTtools.txt')
-    licensepy_path = os.path.join(script_dir, 'Text\license_pyDRTtools.txt')
+    readmeez_path = os.path.join(script_dir, r'Text\readme_ezDRTtools.txt')
+    readmepy_path = os.path.join(script_dir, r'Text\readme_pyDRTtools.txt')
+    licenseez_path = os.path.join(script_dir, r'Text\license_ezDRTtools.txt')
+    licensepy_path = os.path.join(script_dir, r'Text\license_pyDRTtools.txt')
 
     #msg_box = QtWidgets.QMessageBox()
     #msg_box.setWindowTitle("Readme")
@@ -93,7 +93,7 @@ def showManual(self):
     script_dir = os.path.dirname(os.path.abspath(__file__))
     script_dir = os.path.dirname(script_dir)  # up 2 folder levels
     script_dir = os.path.dirname(script_dir)
-    manual_path = os.path.join(script_dir, 'Manual\pyDRTtools_manual.pdf')
+    manual_path = os.path.join(script_dir, r'Manual\pyDRTtools_manual.pdf')
 
     if manual_path:
         try:
@@ -105,7 +105,7 @@ def showAppNote(self):
     script_dir = os.path.dirname(os.path.abspath(__file__))
     script_dir = os.path.dirname(script_dir)  # up 2 folder levels
     script_dir = os.path.dirname(script_dir)
-    manual_path = os.path.join(script_dir, 'Text\ezDRTtools_AppNote.pdf')
+    manual_path = os.path.join(script_dir, r'Text\ezDRTtools_AppNote.pdf')
 
     if manual_path:
         try:
