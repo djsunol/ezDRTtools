@@ -2,7 +2,7 @@ import pyDRTtools
 import pyDRTtools.runs
 import csv
 
-
+# test code, run from a command line
 def ExportDRT(eisdata, path):
     if eisdata is None:
         return

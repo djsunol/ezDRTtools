@@ -13,14 +13,11 @@ global_pyDRTdate: str = "2024-10-31"
 global_importfile: str = ""
 
 import os
-import subprocess
 from PyQt5 import QtGui, QtWidgets
-from PyQt5.QtWidgets import QTextEdit
 
 global_mainwindow =QtGui
 
 def addAboutMenu(self,mainwindow):
-    global_mainwindow = mainwindow
     help_menu = self.menubar.addMenu("&Help")
     about_action = QtWidgets.QAction("&About...",mainwindow)
     about_action.triggered.connect(showAboutMessage)
