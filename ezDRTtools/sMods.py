@@ -4,8 +4,8 @@ __authors__ = 'Derek Johnson'
 __date__ = '7th Jan 2025'
 
 global_exDRTname: str  = "ezDRTtools"
-global_ezDRTver: str = "1.02"
-global_ezDRTdate: str = "2025-01-15"
+global_ezDRTver: str = "1.03"
+global_ezDRTdate: str = "2025-08-07"
 
 global_pyDRTver: str ="0.2"
 global_pyDRTdate: str = "2024-10-31"
