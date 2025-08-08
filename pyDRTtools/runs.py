@@ -538,7 +538,7 @@ def BHT_run(entry, rbf_type = 'Gaussian', der_used = '1st order', shape_control 
     for attempt in range(max_attempts):
         try:
             # generate a random initial guess for theta_0 in the range
-            theta_0 = 10**(6 * np.random.rand(3,1) - 3)
+            theta_0 = 10**(6 * np.random.rand(3) - 3)
             # perform the Hilbert transform estimation for the real part of the impedance data
             out_dict_real = BHT.HT_single_est(theta_0, entry.Z_exp.real, entry.A_re, entry.A_H_im, entry.M, N_freqs, N_taus)
             # update theta_0 based on the result of the real part estimation
